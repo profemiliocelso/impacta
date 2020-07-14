@@ -1,0 +1,15 @@
+<div class="container margem">
+    <h1>Confirmação</h1>
+    <h2 class="text-danger">Tem certeza que deseja remover este evento?</h2>
+    
+    <div class="alert alert-danger">
+        {{ evento.descricao }}
+    </div>
+
+    <button class="btn btn-danger" (click)="remover(evento._id)">
+        Sim, remover
+    </button>
+    |
+    <a routerLink="/eventos">Não, voltar para a lista</a>
+</div>
+

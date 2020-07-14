@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu de Opções</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    
+    <header>
+        <p>Seja bem vindo, <%= p_usuario.nome %> </p>
+        <h1>Cadastro de Eventos</h1>
+        <h4>Menu de Opções</h4>
+    </header>
+
+    <section>
+        <ul>
+            <li><a href="/cadUsuario">Cadastro de Usuários</a></li>
+            <li><a href="/cadEvento">Cadastro de Eventos</a></li>
+            <li><a href="/listaEventos">Lista de Eventos</a></li>
+        </ul>
+    </section>
+    <section>
+        <a href="/logout">Logout</a>
+    </section>
+</body>
+</html>

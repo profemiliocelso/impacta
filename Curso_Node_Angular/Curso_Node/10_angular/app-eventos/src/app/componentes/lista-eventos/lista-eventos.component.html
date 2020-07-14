@@ -1,0 +1,69 @@
+<div class="container margem">
+    <h1>Gestão de Eventos</h1>
+
+    <div *ngIf="eventos.length < 3">
+        <div class="alert alert-danger">
+            Você possui {{ eventos.length }} eventos!!
+        </div>
+    </div>
+
+    <div *ngElse="eventos.length < 3">
+        <div class="alert alert-info">
+            Você possui {{ eventos.length }} eventos!!
+        </div>
+    </div>
+
+
+    <div style="margin-bottom: 15px;">
+        <button class="btn btn-info" (click)="incluirEvento()">Incluir Evento</button>
+    </div>
+    <!-- Campo para filtrar os eventos -->
+
+    <div class="form-horizontal">
+        <div class="form-group">
+            <label for="descricao" class="col-md-2 control-label">
+                Informe partes da descrição:
+            </label>
+            <div class="col-md-10">
+                <input type="text"  class="form-control" #busca (keyup)="0" >
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Listagem dos eventos -->
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Descrição</th>
+                <th>Data</th>
+                <th>Preço</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let evento of eventos | subLista:busca.value" appDestaque>
+                <td>{{ evento.descricao | uppercase }}</td>
+                <td>{{ evento.data | date:'dd/MM/yyyy' }}</td>
+                <td>{{ evento.preco }}</td>
+                <td>
+                    <a routerLink="/eventos/visualizar/{{evento._id}}" class="btn btn-default">
+                        <i class="glyphicon glyphicon-eye-open"></i>
+                        Ver
+                    </a>
+                    |
+                    <a routerLink="/eventos/alterar/{{evento._id}}" class="btn btn-warning">
+                        <i class="glyphicon glyphicon-edit"></i>
+                        Alterar
+                    </a>    
+                    |
+                    <a routerLink="/eventos/remover/{{evento._id}}" class="btn btn-danger">
+                        <i class="glyphicon glyphicon-trash"></i>
+                        Remover
+                    </a>                                     
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

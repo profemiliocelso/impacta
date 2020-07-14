@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    
+    <header>
+        <p>Seja bem vindo, <%= p_usuario.nome %> </p>
+        <h1>Cadastro de Eventos</h1>
+        <h4>Forneça os dados do evento</h4>
+    </header>
+
+    <form action="/novoEvento" method="POST">
+        <span>Descrição:</span><br/>
+        <input type="text" name="evento[descricao]" ><br/>
+
+        <span>Data:</span><br/>
+        <input type="date" name="evento[data]" ><br/>
+
+        <span>Preço:</span><br/>
+        <input type="text" name="evento[preco]" ><br/>
+
+        <button type="submit">Incluir Evento</button>
+    </form>
+</body>
+</html>

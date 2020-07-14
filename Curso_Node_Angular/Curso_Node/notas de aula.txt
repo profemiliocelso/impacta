@@ -1,0 +1,882 @@
+
+1. Na área de aluno, pode baixar a apostila.
+
+2. Conteúdo:
+	
+	MongoDB
+	Express.js	
+	Angular
+	Node.js
+	
+	--> MEAN Stack
+	
+3. Avaliação diária: avaliacao.impacta.com.br
+--------------------------------------------------------------
+Mão à obra!!
+
+
+
+
+
+1. Software:
+		- Node.js (instalação normal) - nodejs.org
+		- Visual Studio Code (VSCode) (instalação normal)
+		- MongoDB
+			Install MongoDB As Service
+
+
+
+			
+2. Criar uma pasta chamada Curso_Node
+
+3. Dentro desta pasta, criar outra pasta chamada 01_conceitos_node
+
+A partir desta estrutura, podemos iniciar o trabalho com node.js.
+
+Exemplos:
+
+	a. Criando e consumindo módulos no Node.js
+	
+		Considere a função abaixo:
+		
+			function calcularSoma(x, y){
+				return x + y;
+			}		
+
+		Podemos acessar esta função de diversas formas:
+		
+		1. acessando diretamente pelo nome da função:
+		
+		var soma = calcularSoma(2, 3);
+		
+		
+		
+		
+		2. usando uma variavel para referenciá-la;
+		
+		var funcao = calcularSoma;
+		
+		var soma = funcao(2, 3);
+		
+		
+		
+		
+		3. usando funções anônimas:
+		
+		var calculo = function (x, y) {
+			return x + y;
+		}
+		
+		var soma = calculo(2, 3);
+		
+
+
+
+Tipos de variáveis no Javascript, durante a atribuição:
+
+
+	function calcularSoma(x, y){
+		return x + y;
+	}
+
+
+	var n = 10;						// n é inteiro
+	
+	var s = 'Node.js';				// s é string
+	
+	var m = [1, 2, 3];				// m é um array ou lista
+	
+	var k = { titulo: 'Impacta' };	// k é um objeto
+	
+	var x = calcularSoma(2, 3);		// x é inteiro
+	
+	var y = calcularSoma;			// y é uma função
+		
+
+
+	exports.n = 10;						// n é inteiro
+	
+	exports.s = 'Node.js';				// s é string
+	
+	exports.m = [1, 2, 3];				// m é um array ou lista
+	
+	exports.k = { titulo: 'Impacta' };	// k é um objeto
+	
+	exports.x = calcularSoma(2, 3);		// x é inteiro
+	
+	exports.y = calcularSoma;			// y é uma função
+	
+	
+-------
+Situação: função que recebe outra como parametro:
+
+Suponha uma tabela com informações de clientes: cpf, nome, telefone, email
+
+Desejamos executar uma função que realize uma busca por determinados clientes.
+
+
+A função se chamará buscar:
+
+function buscar(criterio){
+
+	//conteudo
+	
+}
+-------------------------------------------------------------------
+
+Arrow Function
+
+
+Considere a função abaixo:
+
+var fn = function (x, y) {
+	return x + y;
+}
+
+var fn = (x, y) =>  x + y; 
+-----------------------------------
+
+var fn1 = function (s) {
+	return s.length;
+}
+
+var fn1 = s => s.length;
+var fn1 = s => { return s.length;} 
+
+-------------------------------------
+
+var fn2 = function(s) {
+	var texto = s + ":";
+	console.log(texto);
+	return texto;
+}
+
+var fn2 = s => {
+	var texto = s + ":";
+	console.log(texto);
+	return texto;
+}
+
+--------------------------------------
+
+var fn3 = function () {
+	console.log('Exemplo de arrow function');
+}
+
+fn3 = () => console.log('Exemplo de arrow function');
+-----------------------------
+
+exports.cursos
+exports.nomes
+
+
+module.exports = Escola
+---------------------------------------------
+
+Módulos no Node.js:
+
+1. definidos pelo próprio usuário.
+	exports. variavel 	-> quando queremos exportar componentes individuais no mesmo módulo
+	module.exports		-> quando queremos exportar um único objeto
+	
+2. definidos na própria biblioteca do Node.js
+	exemplos: hrttp, fs, url.
+	
+3. definidos por terceiros.
+	neste caso, trata-se de um projeto Node.js. A estrutura de um projeto baseado no Node deve ter, 
+	no mínimo:
+	
+		- arquivo package.json
+		- pasta node_modules
+		
+
+
+Obs.:
+
+Objeto Javascript:
+
+	{
+		nome: 'Jose',
+		idade: 25
+	}
+	
+Objeto Json - Javascript Object Notation
+
+	{
+		"nome": "Jose",
+		"idade": 25
+	}
+
+-------------------------------------------------------------------------
+Criando um projeto Node.js do zero, usando o npm (node package manager)
+
+1. Criar o arquivo package.json
+
+	npm init
+	
+2. Adicionar módulos ao projeto
+
+	npm install <nome_modulo>						(instala o módulo, apenas)
+	npm install <nome_modulo> --save				(instala o módulo, e atualiza o package.json)
+	npm install <nome_modulo> -g					(instala o módulo globalmente, onde outros projetos
+													 possam utilizar)
+
+3. Atualizar o projeto de acordo com o arquivo package.json
+
+	npm install										(lê o arquivo package.json e refaz a pasta node_modules)
+----------------------------------------------------------------------------------------
+
+01/07/2020
+
+Vamos criar um projeto baseado no Node.js, usando o Express.js. Para isso seguir os passos:
+
+1. npm install express-generator -g
+
+2. express nodeEventos --ejs
+
+3. cd nodeEventos
+
+4. npm install (para instalar as dependencias do arquivo package.json)
+
+5. criar as pastas 'models' e 'controllers'.
+
+6. instalar o módulo express-load:
+
+	npm install express-load --save
+	
+7. instalar os modulos express-session, body-parser, cookie-parser:
+
+	npm install express-session --save
+	npm install body-parser --save
+
+
+
+Explicação:
+
+	O Express é um framework MVC (Model-View-Controller)
+	
+		View: são as páginas que o usuário visualiza. Elas são escritas com a extensão .ejs (embbeded javascript)
+		
+		Controller: Serve como distribuidor de requisições.
+		
+	O fluxo da aplicação MVC funciona assim:
+	
+		- o usuário faz uma requisição na URL (executa uma rota)
+		- a rota localiza uma função no controller.
+		- a função executada no controller busca uma página (ejs) e apresenta para o usuário
+		
+	Sobre o urlencoded:
+	
+	
+	Suponha:
+		<div> Usamos o elemento <p> como parágrafo  </div>
+		
+		
+	
+	
+	C:\Program Files\MOngoDB\Server\4.2\bin			Vinicius
+	
+	
+	D:\Program Files\MOngoDB\Server\4.2\bin			Ricardo
+	
+	
+	D:\Cassia\MongoDB\Server\4.2\bin				Cassia
+	
+	
+
+
+
+
+
+	
+	<% p_eventos.forEach(function(evento, index){  %> 
+	
+	
+	
+	<% }) %>
+----------------------------------------------------------------------
+
+Webservices
+
+
+www.emiliocelso.com.br/api/android (exemplo)
+viacep.com.br 	-> acesso ao link para o webservice
+
+Desenvolvimento de webservice:
+
+Podemos fazer duas coisas:
+	- criar um simulador de webservice - mock
+	
+		Para isso, usaremos o módulo json-server, que deve ser instalado
+		globalmente.
+		
+		- criar a pasta 06_webservice_mock
+		- nesta pasta, incluir um arquivo chamado db.json
+		
+		- instalar o módulo json-server:
+			
+			npm install json-server -g
+			
+		- executar o comando:
+		
+			json-server db.json					(default: porta 3000)
+			
+		- no browser, nós podemos apenas consultar as informações.
+		  Se quisermos incluir, alterar ou remover, devemos umsar um 
+		  recurso diferente do browser - sugestão: Postman
+		  
+		  Baixar o postman (getpostman.com)
+		  
+		- No node, ou em qualquer parte do Javascript, podemos comsumir
+		  qualquer webservice, através de objetos do tipo Promise.
+		  
+		- Para isso, devemos incluir o módulo node-fetch:
+		
+			npm install node-fetch --save
+			
+			
+			
+			Content-Type
+					
+						text/plain
+						text/html
+						
+						
+						application/json
+						
+						
+						{ "prop": "valor > 5" }
+						
+						{ "prop": "valor &gt; 5" }
+						
+						
+						application/xml
+						application/pdf
+------------------------------------------------------
+
+Angular
+
+	Angularjs						Angular 2
+									Angular 4
+									Angular 4.3
+									Angular 4+
+									
+									Angular
+									
+									Angular 5
+									Angular 6
+									Angular 7
+									Angular 8
+									Angular 9 (9.1)
+-------------------------------------------------------------------------------									
+Projeto AngularJS:
+
+	Criar um projeto do tipo express chamado appAngularJS
+	
+	express appAngularJS --ejs
+	cd appAngularJS
+	npm install
+	npm install body-parser --save
+	npm install express-load --save
+	
+	
+	controller no AngularJS:
+	
+	
+        app.controller("Principal",['$http', '$url', '$location', function($http, $url, $location){
+
+        }]);	
+		
+		
+		
+		function () {
+			this
+			
+
+			function () {
+				this
+			
+			}
+		
+		
+		}
+		
+--------------------------------------------
+O angular possui uma série de filtros (também conhecidos como pipes), cujo 
+objetivo é fornecer uma formatação na saída
+
+----------------------------------------------------------------------------
+Angular 9
+
+	A criação, desenvolvimento e execução de uma aplicação Angular depende de
+	alguns comandos disponiveis no Angular CLI.
+	
+	1. Instalar o angular CLI:
+	
+		npm install @angular/cli -g
+		
+	2. Criar um projeto chamado app-conceitos
+	
+		ng new app-conceitos
+		
+	3. Entrar na pasta do projeto
+	
+	4. Executar a aplicação:
+	
+		ng serve
+		
+	5. O Angular trabalha com componentes, desenvolvidos na linguagem
+	   Typescript.
+	   
+	6. Ciclo de vida de uma aplicação angular.
+	
+	
+		- primeiro arquivo lido pelo angular: angular.json
+		
+	
+	main.ts			
+	
+	AppModule	-> app.module.ts
+	
+					AppComponent  -> app.component.ts
+					 
+					                 selector: 'app-root'
+									 templateUrl: 'app.component.html'
+									 
+									          ||
+											  \/
+											  
+										index.html (<app-root></app-root>)
+--------------------------------------------------------------------------
+Módulos (AppModule), Componentes (AppComponent) e Services (AppService)
+
+@NgModule({})
+class AppModule {}
+
+@Component({})
+class AppComponent {}
+
+@Injectable({})
+class AppService {}
+
+Nos exemplos acima, @NgModule, @Component e @Injectable são chamados
+"Decorators". Os Decorators são usados para especificar o comportamento
+do elemento em questão.
+
+
+
+
+- Módulo: é o elemento que reúne os demais elementos da aplicação. 
+	Todos os elementos da aplicação devem ser registrados no módulo.
+
+@NgModule({
+	declarations: [],
+	imports: [],
+	exports: [],
+	providers: [],
+	bootstrap: []
+})
+class AppModule {}
+
+
+
+- Componente: é o elemento responsável por renderizar a view para o 
+  usuário.
+
+@Component({
+	selector: 'app-exemplo',		// <app-exemplo></app-exemplo>
+	template | templateUrl,
+	styleUrls
+})
+class AppComponent {}
+-------------------------------------------------------------
+Vamos elaborar alguns componentes, para entender o processo de execução.
+Para isso, vamos adicionar alguns módulos:
+
+	- bootstrap : npm install bootstrap@3.3.7 --save
+	
+---------------------------------------
+Criando componentes:
+
+	1. Criar a pasta 'componentes'
+	2. Criar a subpasta 'app-exemplo1'
+	3. Criar o arquivo app-exemplo1.component.ts
+	4. Criar o arquivo app-exemplo1.component.html
+	5. Registrar o componente no arquivo app.module.ts (módulo AppModule).
+	
+	Ou
+	
+	ng generate component componentes/app-exemplo2
+	
+	
+	
+	
+	Quando usar property binding ou interpolação? Depende do local:
+	Se for atribuir o valor para uma propriedade, usamos o Property Binding;
+	se for o conteúdo de um elemento, usamos a interpolação. 
+	
+	Exemplo:
+	
+		NO componente temos a variavel:
+			curso: string = "Desenvolvimento Web";
+			
+		Na view:
+		
+			<input [value]="curso" />
+			
+			<li>{{curso}}<li>
+			
+---------------------------------------------
+Criando serviços
+
+	ng generate service services/app-service
+
+
+
+https://drive.google.com/drive/folders/1GzQ2b9jT5vQzeQKSVEYq4v-vii7YHrBe?usp=sharing
+
+https://github.com/profemiliocelso/impacta
+
+
+------------------------------------------------------
+Conceito de Injeção de Dependencia.
+
+
+class Autor {
+	nome: string;
+}
+
+class Livro {
+	titulo: string;
+	autor: Autor = new Autor();
+}								
+
+-----------------------------------------------------
+
+class Autor {
+	nome: string;
+}
+
+class Livro {
+	titulo: string;
+	autor: Autor;
+	
+	setAutor(Autor autor): void {
+		this.autor = autor;
+	}
+}								
+
+
+-------------------------------------------------------
+1. Criar, na pasta 10_conceitos, um novo projeto chamado
+	app-eventos.
+
+2. No projeto, adicionar os módulos do bootstrap (3.3.7) e do jquery (3.4.1).
+
+3. Configurar o bootstrap e o jquery no arquivo angular.json
+
+
+4. Criar os componentes a seguir:
+
+	ng generate component componentes/inicio
+
+	ng generate component componentes/home
+
+	ng generate component componentes/lista-eventos
+
+	ng generate component componentes/erro
+
+5. Alterar o arquivo styles.css (pasta src)
+
+6. Configurar as rotas.
+
+7. Criar um serviço para acessar o webservice.
+
+	ng generate service services/eventos
+	
+8. Para acessar um webservice, devemos seguir estes passos:
+
+	- Definir uma interface representando o objeto com as propriedades do evento 
+	  a ser manipulado.
+	  
+	  ng generate interface interfaces/evento
+	  
+	- Adicionar  o módulo HttpClientModule no arquivo app.module.ts;
+	- No construtor do service criado, referenciar o componente HttpClient.
+	- Escrever a função para consumir a lista de eventos do webservice:
+		getListaEventos() 
+		
+	- No componente ListaEventosComponent, chamar esta função e atribuir a 
+	  resposta para uma lista de eventos.
+	
+9. Criar o componente responsável por adicionar novos eventos:
+
+		ng generate component componentes/novo-evento
+
+-----------------------------------------------------------------------		
+10. Suponha que não houvesse a classe EventosService, e que o acesso
+    ao webservice fosse feiro no próprio componente:
+
+
+export class ListaEventosComponent implements OnInit {
+
+	constructor(private http: HttpClient) {}
+
+	url: string = "http://localhost:3200/eventos";
+	eventos: Evento[];
+
+	ngOnInit(): void {
+
+		this.http.get<Evento[]>(this.url)
+		
+			.subscribe(resposta => this.eventos = resposta)
+
+	}
+}
+
+
+
+---------------------------------------------------
+fetch(this.url)
+	.then(resposta => {
+		return resposta.json();
+	})
+	.then(saida => this.eventos = saida);
+-------------------------------------------------------
+
+localhost:4200/eventos
+
+
+const routes: Routes = [
+  { path: "**", component: ErroComponent },
+  { path: "", component: InicioComponent },
+  { path: "home", component: HomeComponent },
+  { path: "eventos", component: ListaEventosComponent },
+  { path: "eventos/novo", component: NovoEventoComponent },
+  
+];
+	 
+		
+
+Vinculo Unidirecional:
+
+	Property Binding 	->	[propriedade]		(componente -> html)
+	
+	Event Binding		->  (evento)			(html -> componente)
+	
+Vinculo Bidirecional:
+
+	[(ngModel)] 
+	   
+	-Para usar o ngModel é necessário incluir o módulo FormsModule em
+	 AppModule
+
+-------------------------------------------------------------
+Para exibir os detalhes de um evento:
+
+	- incluir um link na lista de eventos, direcionado para uma rota contendo
+	  o id do evento
+	- criar um novo componente para representar os detalhes do evento.	
+	
+		ng generate component componentes/visualizar-evento
+	
+	- definir a nova rota.
+	
+	- no componente criado, definir um recurso para ler o valor passado como
+	  parametro da URL (id).
+	
+	- no serviço (EventosService), definir um método para buscar o evento
+	  pelo seu id.
+	  
+	- incluir a nova rota na listagem de eventos.
+	
+
+
+
+Para alterar um evento:
+
+	- incluir um link na lista de eventos, direcionado para uma rota contendo
+	  o id do evento.
+	- criar um novo componente para representar a alteração do evento.	
+	
+		ng generate component componentes/alterar-evento
+	
+	- definir a nova rota.
+	
+	- no componente criado, definir um recurso para ler o valor passado como
+	  parametro da URL (id).
+	
+	- no serviço (EventosService), definir um método para alterar o evento
+	  pelo seu id.
+	  
+	- incluir a nova rota na listagem de eventos.
+	
+	
+Obs.: formato de data nos campos de entrada configurados como "date"
+
+
+		<input type="date" ... />
+		
+		Para atribuir uma data neste campo de entrada, devemos usar o formato
+		universal: 'yyyy-mm-dd'
+		
+		
+		Para isso usamos o módulo moment:
+		
+		- instalar o node via npm
+		- referencia-lo por meio de um alias.
+		
+-----------------------------------------------------------------------------
+
+Para remover um evento:
+
+	- incluir um link na lista de eventos, direcionado para uma rota contendo
+	  o id do evento.
+	- criar um novo componente para representar a remoção do evento.	
+	
+		ng generate component componentes/remover-evento
+	
+	- definir a nova rota.
+	
+	- no componente criado, definir um recurso para ler o valor passado como
+	  parametro da URL (id).
+	
+	- no serviço (EventosService), definir um método para remover o evento
+	  pelo seu id.
+	  
+	- incluir a nova rota na listagem de eventos.	
+	
+-------------------------------------------------------------
+Filtros e pipes
+
+	São elementos que transformam o resultado apresentado para o usuário.
+	
+	Para criar um filtro, usamos o seguinte atalho:
+	
+	ng generate pipe filtros/sub-lista
+	
+	
+	Obs.:
+	
+	Seja a seguinte função:
+	
+	buscar(...texto: string[]){ }
+
+	
+	Executando:
+	
+	buscar('item1');
+	buscar('item1', 'item2', 'item3', 'item4')
+	
+	
+	
+	
+	
+	Vamos, a título de exemplo, reproduzir o filtro 'uppercase'
+	
+	Uso:
+		{{ evento.descricao | uppercase }}
+		
+	Definição:
+	
+		@Pipe({
+			name: 'uppercase'
+		})
+		export class UppercasePipe implements PipeTransform {
+
+		  transform(value: string): string {
+			return value.toUpperCase();
+		  }
+
+		}	
+		
+---------------------------------------------------------------
+Exemplo prático: Desenvolver um filtro que, quando aplicado a um nome,
+retorne um email, cujo dominio é informado como parametro.
+
+
+	Uso:
+	
+		{{ nome | email:'site' }}
+		
+	Saída:
+		nome@site.com.br
+	
+	
+	Definição:
+	
+		@Pipe({
+			name: 'email'
+		})
+		export class EmailPipe implements PipeTransform {
+
+		  transform(value: string, dominio: string ): string {
+			return value + '@' + dominio + '.com.br';
+		  }
+		}	
+-----------------------------------------------------------------
+
+Diretivas:
+
+	Estruturais: alteram a estrutura do componente (DOM) - iniciam com *
+	
+		*ngIf, *ngFor, ...
+	
+	
+	de Propriedade (ou de atributo): incluir novos comportamentos
+	
+	
+Criando novas diretivas estruturais:
+
+	ng generate directive diretivas/ng-else
+	
+
+
+Criando novas diretivas de propriedade (de atributo):
+
+	ng generate directive diretivas/destaque
+	   
+	   
+		
+
+
+
+
+
+
+
+
+
+
+		
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

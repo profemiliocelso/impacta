@@ -1,0 +1,11 @@
+<div class="container margem">
+    <h1>Detalhes do evento</h1>
+    
+    <div class="alert alert-info">
+        <strong>Código (_id): </strong><span>{{ evento._id}}</span><br/>
+        <strong>Descrição: </strong><span>{{ evento.descricao}}</span><br/>
+        <strong>Data: </strong><span>{{ evento.data | date:'dd/MM/yyyy'}}</span><br/>
+        <strong>Preço: </strong><span>{{ evento.preco | currency }}</span><br/>
+    </div>
+    <a routerLink="/eventos" class="btn btn-info">Voltar para a lista</a>
+</div>
